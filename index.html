@@ -1,0 +1,171 @@
+`html
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HBC Admin Panel - Sign In</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <section class="hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1 class="hero-title">Welcome to HBC Admin Panel!</h1>
+        <p class="hero-subtitle">
+          Manage students, instructors, and projects in one place.
+        </p>
+
+        <div class="auth-card">
+          <div id="signin-form" class="auth-form active">
+            <h2 class="auth-title">Sign in to HBC Admin</h2>
+
+            <div class="social-login">
+              <button
+                type="button"
+                class="social-btn facebook"
+                aria-label="Sign in with Facebook"
+              >
+                <i class="fa-brands fa-facebook-f"></i>
+              </button>
+              <button
+                type="button"
+                class="social-btn google"
+                aria-label="Sign in with Google"
+              >
+                <i class="fa-brands fa-google"></i>
+              </button>
+            </div>
+
+            <form id="signInForm" novalidate>
+              <div class="input-group">
+                <input
+                  type="text"
+                  id="signin-email"
+                  placeholder="Email or Phone number"
+                  required
+                />
+                <span class="error-msg"></span>
+              </div>
+              <div class="input-group">
+                <input
+                  type="password"
+                  id="signin-password"
+                  placeholder="Please enter your password"
+                  required
+                />
+                <span class="error-msg"></span>
+              </div>
+              <button type="submit" class="btn btn-pink">SIGN IN</button>
+            </form>
+
+            <div class="auth-links">
+              <a href="#" class="forgot-link">Forgot password?</a>
+              <label class="remember-me">
+                <input type="checkbox" id="remember-me" />
+                <span>Remember me</span>
+              </label>
+            </div>
+
+            <div class="divider"><span>or</span></div>
+            <button type="button" class="btn btn-blue" id="showSignUp">
+              SIGN UP
+            </button>
+          </div>
+
+          <div id="signup-form" class="auth-form">
+            <h2 class="auth-title">Create your HBC Admin account</h2>
+
+            <div class="social-login">
+              <button
+                type="button"
+                class="social-btn facebook"
+                aria-label="Sign up with Facebook"
+              >
+                <i class="fa-brands fa-facebook-f"></i>
+              </button>
+              <button
+                type="button"
+                class="social-btn google"
+                aria-label="Sign up with Google"
+              >
+                <i class="fa-brands fa-google"></i>
+              </button>
+            </div>
+
+            <form id="signUpForm" novalidate>
+              <div class="input-group">
+                <input
+                  type="text"
+                  id="signup-name"
+                  placeholder="Full name"
+                  required
+                />
+                <span class="error-msg"></span>
+              </div>
+              <div class="input-group">
+                <input
+                  type="text"
+                  id="signup-email"
+                  placeholder="Email or Phone number"
+                  required
+                />
+                <span class="error-msg"></span>
+              </div>
+              <div class="input-group">
+                <input
+                  type="password"
+                  id="signup-password"
+                  placeholder="Create a password"
+                  required
+                />
+                <span class="error-msg"></span>
+              </div>
+              <div class="input-group">
+                <input
+                  type="password"
+                  id="signup-confirm"
+                  placeholder="Confirm password"
+                  required
+                />
+                <span class="error-msg"></span>
+              </div>
+              <button type="submit" class="btn btn-blue">SIGN UP</button>
+            </form>
+
+            <div class="divider"><span>or</span></div>
+            <button type="button" class="btn btn-pink" id="showSignIn">
+              BACK TO SIGN IN
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <nav class="bottom-links">
+      <a href="about.html">About HBC</a>
+      <a href="#">Our Programs</a>
+      <a href="#">Contact Us</a>
+    </nav>
+    <footer class="site-footer">
+      <p class="footer-copy">
+        © <span id="year"></span>, made with
+        <i class="fa-solid fa-heart"></i> by <strong>HBC</strong> for a better
+        web.
+      </p>
+      <nav class="footer-links">
+        <a href="about.html">About</a>
+        <a href="#">Programs</a>
+        <a href="#">Contact</a>
+      </nav>
+    </footer>
+
+    <div id="toast" class="toast"></div>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
