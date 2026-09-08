@@ -1,0 +1,188 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  font-family: "Segoe UI", sans-serif;
+  background: #f4f5f8;
+}
+
+.sidebar {
+  width: 220px;
+  height: 100vh;
+  background: #fff;
+  border-right: 1px solid #eee;
+  padding: 20px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 200;
+  transition: transform 0.3s ease;
+}
+
+.sidebar-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.logo i {
+  margin-right: 6px;
+  color: #8a2be2;
+}
+
+#closeSidebar {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  color: #777;
+  cursor: pointer;
+}
+
+.menu-item {
+  display: block;
+  padding: 10px;
+  color: #555;
+  text-decoration: none;
+  border-radius: 8px;
+  margin-bottom: 4px;
+}
+
+.menu-item i {
+  width: 18px;
+  text-align: center;
+  margin-right: 8px;
+}
+
+.menu-item.active {
+  background: linear-gradient(90deg, #e6007e, #8a2be2);
+  color: #fff;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 150;
+}
+
+.overlay.show {
+  display: block;
+}
+
+.main {
+  flex: 1;
+  margin-left: 220px;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  padding: 12px 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+#menuToggle {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  color: #555;
+  cursor: pointer;
+  display: none;
+}
+
+.title-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.breadcrumb {
+  font-size: 0.75rem;
+  color: #999;
+}
+
+.page-title {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #2b2b3d;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 8px 12px;
+}
+
+.search-box input {
+  border: none;
+  outline: none;
+}
+
+#logoutBtn {
+  color: #555;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.icon-btn {
+  color: #777;
+  cursor: pointer;
+}
+
+.content {
+  padding: 20px;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .main {
+    margin-left: 0;
+  }
+
+  #menuToggle {
+    display: block;
+  }
+
+  #closeSidebar {
+    display: block;
+  }
+
+  .search-box {
+    display: none;
+  }
+}
