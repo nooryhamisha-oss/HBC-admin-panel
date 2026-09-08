@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HBC Admin Panel - Log Out</title>
+    <link rel="stylesheet" href="css/logout.css" />
+  </head>
+  <body>
+    <div class="logout-box">
+      <h2>Confirm Log Out</h2>
+      <p>Please enter your username and password to log out.</p>
+
+      <form id="logoutForm">
+        <div class="input-group">
+          <input type="text" id="logout-username" placeholder="Username" />
+          <span class="error-msg"></span>
+        </div>
+
+        <div class="input-group">
+          <input type="password" id="logout-password" placeholder="Password" />
+          <span class="error-msg"></span>
+        </div>
+
+        <button type="submit">Log Out</button>
+      </form>
+    </div>
+
+    <script src="js/logout.js"></script>
+  </body>
+</html>
