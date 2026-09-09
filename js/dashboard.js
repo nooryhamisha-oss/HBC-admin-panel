@@ -17,4 +17,6 @@ document.addEventListener("DOMContentLoaded", function () {
   menuToggle.addEventListener("click", openMenu);
   closeSidebar.addEventListener("click", closeMenu);
   overlay.addEventListener("click", closeMenu);
+
+  document.getElementById("year").textContent = new Date().getFullYear();
 });
