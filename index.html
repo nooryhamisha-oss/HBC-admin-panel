@@ -25,31 +25,20 @@
       <div class="auth-card">
         <div id="signin-form" class="auth-form active">
           <h2 class="auth-title">Sign in to HBC Admin</h2>
-
           <div class="social-login">
-            <button
-              type="button"
-              class="social-btn facebook"
-              aria-label="Sign in with Facebook"
-            >
+            <button type="button" class="social-btn facebook">
               <i class="fa-brands fa-facebook-f"></i>
             </button>
-            <button
-              type="button"
-              class="social-btn google"
-              aria-label="Sign in with Google"
-            >
+            <button type="button" class="social-btn google">
               <i class="fa-brands fa-google"></i>
             </button>
           </div>
-
           <form id="signInForm" novalidate>
             <div class="input-group">
               <input
                 type="text"
                 id="signin-email"
                 placeholder="Email or Phone number"
-                required
               />
               <span class="error-msg"></span>
             </div>
@@ -58,21 +47,17 @@
                 type="password"
                 id="signin-password"
                 placeholder="Please enter your password"
-                required
               />
               <span class="error-msg"></span>
             </div>
             <button type="submit" class="btn btn-pink">SIGN IN</button>
           </form>
-
           <div class="auth-links">
             <a href="#" class="forgot-link">Forgot password?</a>
-            <label class="remember-me">
-              <input type="checkbox" id="remember-me" />
-              <span>Remember me</span>
-            </label>
+            <label class="remember-me"
+              ><input type="checkbox" /> <span>Remember me</span></label
+            >
           </div>
-
           <div class="divider"><span>or</span></div>
           <button type="button" class="btn btn-blue" id="showSignUp">
             SIGN UP
@@ -81,32 +66,17 @@
 
         <div id="signup-form" class="auth-form">
           <h2 class="auth-title">Create your HBC Admin account</h2>
-
           <div class="social-login">
-            <button
-              type="button"
-              class="social-btn facebook"
-              aria-label="Sign up with Facebook"
-            >
+            <button type="button" class="social-btn facebook">
               <i class="fa-brands fa-facebook-f"></i>
             </button>
-            <button
-              type="button"
-              class="social-btn google"
-              aria-label="Sign up with Google"
-            >
+            <button type="button" class="social-btn google">
               <i class="fa-brands fa-google"></i>
             </button>
           </div>
-
           <form id="signUpForm" novalidate>
             <div class="input-group">
-              <input
-                type="text"
-                id="signup-name"
-                placeholder="Full name"
-                required
-              />
+              <input type="text" id="signup-name" placeholder="Full name" />
               <span class="error-msg"></span>
             </div>
             <div class="input-group">
@@ -114,7 +84,6 @@
                 type="text"
                 id="signup-email"
                 placeholder="Email or Phone number"
-                required
               />
               <span class="error-msg"></span>
             </div>
@@ -123,7 +92,6 @@
                 type="password"
                 id="signup-password"
                 placeholder="Create a password"
-                required
               />
               <span class="error-msg"></span>
             </div>
@@ -132,13 +100,11 @@
                 type="password"
                 id="signup-confirm"
                 placeholder="Confirm password"
-                required
               />
               <span class="error-msg"></span>
             </div>
             <button type="submit" class="btn btn-blue">SIGN UP</button>
           </form>
-
           <div class="divider"><span>or</span></div>
           <button type="button" class="btn btn-pink" id="showSignIn">
             BACK TO SIGN IN

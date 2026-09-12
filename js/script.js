@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   const signInForm = document.getElementById("signin-form");
   const signUpForm = document.getElementById("signup-form");
+
   const showSignUpBtn = document.getElementById("showSignUp");
   const showSignInBtn = document.getElementById("showSignIn");
 
@@ -38,8 +39,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     if (valid) {
-      alert("Signed in successfully!");
-      window.location.href = "dashboard.html";
+      showToast("Signed in successfully!");
+      setTimeout(function () {
+        window.location.href = "dashboard.html";
+      }, 1200);
     }
   });
 
@@ -83,7 +86,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     if (valid) {
-      alert("Account created successfully!");
+      showToast("Account created successfully!");
       signUpFormEl.reset();
       signUpForm.classList.remove("active");
       signInForm.classList.add("active");
@@ -100,5 +103,15 @@ document.addEventListener("DOMContentLoaded", function () {
     input.classList.remove("invalid");
     const errorBox = input.parentElement.querySelector(".error-msg");
     errorBox.textContent = "";
+  }
+
+  function showToast(message) {
+    const toast = document.getElementById("toast");
+    toast.textContent = message;
+    toast.classList.add("show");
+
+    setTimeout(function () {
+      toast.classList.remove("show");
+    }, 2500);
   }
 });
