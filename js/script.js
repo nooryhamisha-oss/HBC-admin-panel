@@ -67,6 +67,8 @@ document.addEventListener("DOMContentLoaded", function () {
     if (email.value.trim() === "") {
       showError(email, "Please enter your email or phone number.");
       valid = false;
+    } else if (!email.value.includes("@")) {
+      showError(email, "Email add contain @.");
     } else {
       clearError(email);
     }

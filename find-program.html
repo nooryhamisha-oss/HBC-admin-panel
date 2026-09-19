@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HBC Admin Panel - Find Program</title>
+    <link rel="stylesheet" href="css/dashboard.css" />
+    <link rel="stylesheet" href="css/find.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-top">
+        <div class="logo">
+          <i class="fa-solid fa-graduation-cap"></i> HBC Admin
+        </div>
+        <button id="closeSidebar"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <a href="dashboard.html" class="menu-item"
+        ><i class="fa-solid fa-gauge"></i> Dashboard</a
+      >
+      <a href="find-program.html" class="menu-item active"
+        ><i class="fa-solid fa-book"></i> Programs</a
+      >
+      <a href="#" class="menu-item"
+        ><i class="fa-solid fa-user-graduate"></i> Students</a
+      >
+      <a href="find-instructor.html" class="menu-item"
+        ><i class="fa-solid fa-chalkboard-user"></i> Instructors</a
+      >
+      <a href="#" class="menu-item"
+        ><i class="fa-solid fa-graduation-cap"></i> Graduates</a
+      >
+      <a href="#" class="menu-item"
+        ><i class="fa-solid fa-diagram-project"></i> Projects</a
+      >
+      <a href="#" class="menu-item"
+        ><i class="fa-solid fa-chart-line"></i> Reports</a
+      >
+      <a href="#" class="menu-item"
+        ><i class="fa-solid fa-gear"></i> Settings</a
+      >
+    </aside>
+
+    <div class="overlay" id="overlay"></div>
+
+    <div class="main">
+      <section class="banner">
+        <div class="topbar">
+          <div class="top-left">
+            <div class="title-block">
+              <div class="breadcrumb">
+                <i class="fa-solid fa-house"></i> <span>/ Find Instructor</span>
+              </div>
+              <div class="page-title">Find Instructor</div>
+            </div>
+          </div>
+
+          <div class="navbar-right">
+            <div class="search-box">
+              <button id="menuToggle" class="icon-btn">
+                <i class="fa-solid fa-bars"></i>
+              </button>
+              <input type="text" placeholder="Type here..." />
+            </div>
+            <a href="logout.html" id="logoutBtn"
+              ><i class="fa-solid fa-arrow-right-from-bracket"></i> Log out</a
+            >
+            <i class="fa-solid fa-sliders icon-btn"></i>
+            <i class="fa-solid fa-gear icon-btn"></i>
+            <i class="fa-solid fa-bell icon-btn"></i>
+          </div>
+        </div>
+
+        <div class="banner-content">
+          <h1>Find a Program</h1>
+          <p>
+            Search programs and schedule a session with instructors through the
+            program
+          </p>
+          <div class="row">
+            <input id="progSearch" type="text" placeholder="Search" />
+            <input
+              id="progCampus"
+              type="text"
+              placeholder="Campus or Department"
+            />
+          </div>
+          <div class="row buttons-row">
+            <button id="btnCurrent" class="blue">CURRENT</button>
+            <button id="btnSearch" class="blue">SEARCH</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="resultContent" class="results-section">
+        <div class="tabs">
+          <button id="tabMap" class="tab active">
+            <i class="fa-solid fa-map"></i> Map
+          </button>
+          <button id="tabList" class="tab">
+            <i class="fa-solid fa-list"></i> List
+          </button>
+        </div>
+
+        <div class="results-layout">
+          <aside class="filters">
+            <input class="fi" type="text" placeholder="Program" />
+            <input class="fi" type="text" placeholder="Campus or Department" />
+            <h3>Filter By</h3>
+            <select class="fi">
+              <option>Program Type</option>
+              <option>Web Development</option>
+              <option>Data Analytics</option>
+              <option>Digital Marketing</option>
+            </select>
+            <select class="fi">
+              <option>Duration</option>
+              <option>3 Months</option>
+              <option>6 Months</option>
+              <option>1 Year</option></select
+            ><select class="fi">
+              <option>Level</option>
+              <option>Beginner</option>
+              <option>Intermediate</option>
+              <option>Advanced</option>
+            </select>
+            <h3>Available For</h3>
+            <label class="check-item"
+              ><input type="checkbox" /><span>All Ages</span></label
+            >
+            <label class="check-item"
+              ><input type="checkbox" /><span>Adults</span></label
+            >
+            <h3>View Only</h3>
+            <label class="check-item"
+              ><input type="checkbox" /><span>Online Classes</span></label
+            >
+            <label class="check-item"
+              ><input type="checkbox" /><span>On Campus</span></label
+            >
+          </aside>
+
+          <div class="results-area">
+            <div class="sort">
+              <span> Sort By </span>
+              <button class="pink small">NEXT AVAILABLE</button>
+              <button class="pink small">DISTANCE</button>
+            </div>
+
+            <div id="mapView" class="map-view">
+              <div class="map-buttons">
+                <button class="map-button active">Map</button>
+                <button class="map-button">Satellite</button>
+              </div>
+              <div class="fake-map">
+                <div class="water"></div>
+                <div class="map-road r1"></div>
+                <div class="map-road r2"></div>
+                <div class="map-road r3"></div>
+                <div class="map-road r4"></div>
+                <div class="map-road r5"></div>
+                <span class="map-place p1"> HBC Main Campus </span>
+                <span class="map-place p2"> Campus </span>
+                <span class="map-place p3"> Main Building </span>
+                <i class="fa-solid fa-location-dot marker m1"></i>
+                <i class="fa-solid fa-location-dot marker m2"></i>
+                <i class="fa-solid fa-location-dot marker m3"></i>
+                <i class="fa-solid fa-location-dot marker m4"></i>
+                <strong class="map-center"> HBC </strong>
+              </div>
+            </div>
+
+            <div id="listView" class="list-view hide">
+              <div class="location-card">
+                <img
+                  src="https://placehold.co/120x120/8a2be2/ffffff?text=HBC"
+                  alt="Web Development Program"
+                />
+                <div class="location-info">
+                  <h3>Web Development Program</h3>
+                  <p>
+                    Lot 193,194 Jalan Nilai Square 6, Bandar Baru Nilai, 71800
+                    Nilai, Negeri Sembilan Malaysia
+                  </p>
+                  <p>https://hbc.edu/webdev</p>
+                  <p>+93 700 000 000</p>
+                  <p>HBC Main Campus, Negeri Sembilan Malaysia</p>
+                </div>
+                <div class="location-actions">
+                  <button class="loc-btn">MORE ABOUT THIS PROGRAM</button>
+                  <button class="loc-btn">
+                    FIND AN INSTRUCTOR AND SCHEDULE
+                  </button>
+                </div>
+              </div>
+
+              <div class="location-card">
+                <img
+                  src="https://placehold.co/120x120/e6007e/ffffff?text=HBC"
+                  alt="Data Analytics Program"
+                />
+                <div class="location-info">
+                  <h3>Data Analytics Program</h3>
+                  <p>
+                    Lot 193,194 Jalan Nilai Square 6, Bandar Baru Nilai, 71800
+                    Nilai, Negeri Sembilan Malaysia
+                  </p>
+                  <p>https://hbc.edu/data</p>
+                  <p>+93 700 000 001</p>
+                  <p>HBC Main Campus, Negeri Sembilan Malaysia</p>
+                </div>
+                <div class="location-actions">
+                  <button class="loc-btn">MORE ABOUT THIS PROGRAM</button>
+                  <button class="loc-btn">
+                    FIND AN INSTRUCTOR AND SCHEDULE
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <p>
+          © <span id="year"></span>, made with
+          <i class="fa-solid fa-heart"></i> by <strong>HBC</strong> for a better
+          web.
+        </p>
+        <nav class="footer-links">
+          <a href="about.html">About</a>
+          <a href="#">Programs</a>
+          <a href="#">Contact</a>
+        </nav>
+      </footer>
+    </div>
+    <script src="js/dashboard.js"></script>
+    <script src="js/find-program.js"></script>
+  </body>
+</html>
