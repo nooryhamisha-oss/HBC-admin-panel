@@ -1,55 +1,29 @@
-# HBC Admin Panel
+# HBC Admin Panel (React + Tailwind)
 
-Admin panel project for HBC — built as a final course project.
-Built with plain HTML, CSS, and JavaScript (no frameworks).
+این پروژه از HTML/CSS/JS ساده به React (با Vite) و Tailwind CSS تبدیل شده. ظاهر و رفتار صفحات همان چیزی‌ست که در نسخه اصلی بود؛ فقط ساختار کد به کامپوننت‌های React تبدیل شده.
 
-## Project Status
+## اجرا
 
-This project is being built incrementally, one module per week, as assigned by the instructor. Each week's work is developed on a separate branch and merged after instructor approval.
+```bash
+npm install
+npm run dev
+```
 
-## Progress
+بعد آدرس نمایش داده شده در ترمینال (معمولاً http://localhost:5173) را در مرورگر باز کنید.
 
-| Week | Module                                                                                                   | Status  |
-| ---- | -------------------------------------------------------------------------------------------------------- | ------- |
-| 1    | Sign-in/Sign-up page, Dashboard (sidebar, navbar, stat cards with donut charts), Logout page, About page | Done    |
-| 2    | Students Module                                                                                          | Planned |
-| 3    | Programs Module                                                                                          | Planned |
+## بیلد برای پروداکشن
 
-## Folder Structure
+```bash
+npm run build
+npm run preview
+```
 
-HBC-admin-panel/
+## ساختار
 
-- index.html - Sign-in / Sign-up page
-- dashboard.html - Main dashboard (sidebar + navbar + stat cards)
-- logout.html - Logout confirmation page
-- css/style.css - Sign-in page styles
-- css/dashboard.css - Dashboard styles
-- css/logout.css - Logout page styles
-- js/script.js - Sign-in/Sign-up logic and validation
-- js/dashboard.js - Sidebar toggle, footer year
-- js/logout.js - Logout form validation
-- assets/images/hero-bg.jpg - Background image for sign-in page
+- `src/pages/` — هر صفحه یک کامپوننت جدا (Login, Dashboard, FindProgram, FindInstructor, Logout, About)
+- `src/components/` — بخش‌های مشترک (Sidebar, Footer‌ها, نقشه ساختگی, تب‌های Map/List)
+- کد فقط از `useState` و پراپ‌های ساده استفاده کرده، بدون انتزاع اضافی.
 
-## How to Run
+## نکته
 
-1. Clone the repository
-2. Open index.html in your browser (no build step or server required)
-
-## Tech Stack
-
-- HTML5
-- CSS3 (Flexbox, Grid, media queries for responsive design)
-- Vanilla JavaScript (form validation, DOM manipulation, no frameworks)
-
-## Git Workflow
-
-- Each week's work is done on a branch named feature/weekXX-description
-- Commits follow the pattern: feat, fix, style, chore, docs
-- Pull requests are opened and merged after each week's module is approved
-
-| 2 | Find Instructor and Find Program pages | ✅ Done |
-| 3 | <بخش هفته بعد> | 🔜 Planned |
-
-## Author
-
-Hamisha Noori
+فایل `about.html` در پروژه اصلی خالی (0 بایت) بود؛ در نسخه React هم فقط یک صفحه خیلی ساده جایگزینش شده.
