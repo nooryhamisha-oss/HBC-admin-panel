@@ -1,7 +1,7 @@
 # HBC Admin Panel
 
 Admin panel project for HBC — built as a final course project.
-Built with plain HTML, CSS, and JavaScript (no frameworks).
+Originally built with plain HTML, CSS, and JavaScript, then converted to React + Tailwind CSS in week 3.
 
 ## Project Status
 
@@ -9,47 +9,27 @@ This project is being built incrementally, one module per week, as assigned by t
 
 ## Progress
 
-| Week | Module                                                                                                   | Status  |
-| ---- | -------------------------------------------------------------------------------------------------------- | ------- |
-| 1    | Sign-in/Sign-up page, Dashboard (sidebar, navbar, stat cards with donut charts), Logout page, About page | Done    |
-| 2    | Students Module                                                                                          | Planned |
-| 3    | Programs Module                                                                                          | Planned |
+| Week | Module                                                                                                     | Status  |
+| ---- | ------------------------------------------------------------------------------------------------------------ | ------- |
+| 1    | Sign-in/Sign-up page, Dashboard (sidebar, navbar, stat cards with donut charts), Logout page, About page      | Done    |
+| 2    | Find Instructor and Find Program pages                                                                        | Done    |
+| 3    | Converted the whole project from HTML/CSS/JS to React (Vite) + Tailwind CSS, same design and behavior kept    | Done    |
 
 ## Folder Structure
 
 HBC-admin-panel/
 
-- index.html - Sign-in / Sign-up page
-- dashboard.html - Main dashboard (sidebar + navbar + stat cards)
-- logout.html - Logout confirmation page
-- css/style.css - Sign-in page styles
-- css/dashboard.css - Dashboard styles
-- css/logout.css - Logout page styles
-- js/script.js - Sign-in/Sign-up logic and validation
-- js/dashboard.js - Sidebar toggle, footer year
-- js/logout.js - Logout form validation
-- assets/images/hero-bg.jpg - Background image for sign-in page
+- index.html - Vite entry point
+- src/main.jsx - React app entry point
+- src/App.jsx - Routes for all pages
+- src/pages/ - One component per page (Login, Dashboard, FindProgram, FindInstructor, Logout, About)
+- src/components/ - Shared pieces (Sidebar, footers, fake map, Map/List tabs)
+- src/index.css - Tailwind directives
+- src/assets/hero-bg.jpg - Background image used on the sign-in and find pages
+- tailwind.config.js - Brand colors and fonts matching the original design
+- vite.config.js - Vite + React plugin config
 
 ## How to Run
 
 1. Clone the repository
-2. Open index.html in your browser (no build step or server required)
-
-## Tech Stack
-
-- HTML5
-- CSS3 (Flexbox, Grid, media queries for responsive design)
-- Vanilla JavaScript (form validation, DOM manipulation, no frameworks)
-
-## Git Workflow
-
-- Each week's work is done on a branch named feature/weekXX-description
-- Commits follow the pattern: feat, fix, style, chore, docs
-- Pull requests are opened and merged after each week's module is approved
-
-| 2 | Find Instructor and Find Program pages | ✅ Done |
-| 3 | <بخش هفته بعد> | 🔜 Planned |
-
-## Author
-
-Hamisha Noori
+2. Install dependencies:
