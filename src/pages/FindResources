@@ -1,0 +1,222 @@
+import { useState } from "react";
+import Sidebar from "../components/Sidebar.jsx";
+import Footer from "../components/Footer.jsx";
+import "../styles/dashboard.css";
+import "../styles/resources.css";
+
+const featured = [
+  {
+    title: "Web Development Bootcamp",
+    price: "49 USD",
+    provider: "Udemy",
+    color: "#a435f0",
+    desc: "A complete course covering HTML, CSS, JavaScript and real projects.",
+    img: "https://placehold.co/400x200/8a2be2/ffffff?text=Web+Dev",
+  },
+  {
+    title: "Data Analytics with Python",
+    price: "59 USD",
+    provider: "Coursera",
+    color: "#0056d2",
+    desc: "Learn data analysis, pandas, and visualization step by step.",
+    img: "https://placehold.co/400x200/0056d2/ffffff?text=Data+Analytics",
+  },
+  {
+    title: "UI/UX Design Essentials",
+    price: "39 USD",
+    provider: "LinkedIn Learning",
+    color: "#0a66c2",
+    desc: "Design principles, wireframing, and prototyping for beginners.",
+    img: "https://placehold.co/400x200/0a66c2/ffffff?text=UI%2FUX",
+  },
+  {
+    title: "GitHub Student Developer Pack",
+    price: "Free",
+    provider: "GitHub Education",
+    color: "#24292e",
+    desc: "Free developer tools and services for verified students.",
+    img: "https://placehold.co/400x200/24292e/ffffff?text=GitHub+Pack",
+  },
+];
+
+const tableRows = [
+  {
+    name: "Web Development Bootcamp",
+    category: "Course",
+    provider: "Udemy",
+    discount: 0,
+    price: "49 USD",
+    id: "243598",
+  },
+  {
+    name: "Data Analytics with Python",
+    category: "Course",
+    provider: "Coursera",
+    discount: 10,
+    price: "53 USD",
+    id: "877712",
+  },
+  {
+    name: "UI/UX Design Essentials",
+    category: "Course",
+    provider: "LinkedIn",
+    discount: 5,
+    price: "37 USD",
+    id: "013472",
+  },
+  {
+    name: "GitHub Student Pack",
+    category: "Tool Access",
+    provider: "GitHub",
+    discount: 0,
+    price: "Free",
+    id: "113213",
+  },
+  {
+    name: "AI Fundamentals Crash Course",
+    category: "Course",
+    provider: "Coursera",
+    discount: 15,
+    price: "45 USD",
+    id: "634729",
+  },
+  {
+    name: "Digital Marketing Basics",
+    category: "Course",
+    provider: "Udemy",
+    discount: 20,
+    price: "29 USD",
+    id: "634730",
+  },
+];
+
+export default function FindResources() {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [search, setSearch] = useState("");
+
+  const filtered = tableRows.filter((r) =>
+    `${r.name} ${r.category} ${r.provider}`
+      .toLowerCase()
+      .includes(search.toLowerCase()),
+  );
+
+  return (
+    <>
+      <Sidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+
+      <div className="main">
+        <header className="navbar">
+          <div className="navbar-left">
+            <button id="menuToggle" onClick={() => setSidebarOpen(true)}>
+              <i className="fa-solid fa-bars"></i>
+            </button>
+            <div className="title-block">
+              <div className="breadcrumb">
+                <i className="fa-solid fa-house"></i> / Marketplace
+              </div>
+              <div className="page-title">Marketplace</div>
+            </div>
+          </div>
+
+          <div className="navbar-right">
+            <div className="search-box">
+              <i className="fa-solid fa-magnifying-glass"></i>
+              <input type="text" placeholder="Type here..." />
+            </div>
+            <a href="/logout" id="logoutBtn">
+              <i className="fa-solid fa-arrow-right-from-bracket"></i> Log out
+            </a>
+            <i className="fa-solid fa-gear icon-btn"></i>
+            <i className="fa-solid fa-bell icon-btn"></i>
+          </div>
+        </header>
+
+        <main className="content">
+          <section className="res-panel">
+            <h2>Search the Marketplace and get the resources you need</h2>
+
+            <div className="res-grid">
+              {featured.map((item) => (
+                <div className="res-card" key={item.title}>
+                  <img src={item.img} alt={item.title} />
+                  <div className="res-body">
+                    <div className="res-top">
+                      <span>
+                        {item.provider === "GitHub Education"
+                          ? "Tool Access"
+                          : "Course"}
+                      </span>
+                      <span className="res-price">{item.price}</span>
+                    </div>
+                    <div className="res-provider">
+                      <span
+                        className="res-logo"
+                        style={{ background: item.color }}
+                      >
+                        {item.provider.slice(0, 2).toUpperCase()}
+                      </span>
+                      <span>{item.provider}</span>
+                    </div>
+                    <p className="res-desc">{item.desc}</p>
+                    <button className="res-btn">
+                      {item.price === "Free" ? "GET ACCESS" : "ENROLL NOW"}
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="res-panel">
+            <h2>Other results for resource search</h2>
+
+            <div className="res-table-head">
+              <select>
+                <option>7</option>
+                <option>10</option>
+                <option>25</option>
+              </select>
+              <input
+                type="text"
+                placeholder="Search..."
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+              />
+            </div>
+
+            <table className="res-table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Category</th>
+                  <th>Provider</th>
+                  <th>Discount</th>
+                  <th>Price</th>
+                  <th>ID</th>
+                </tr>
+              </thead>
+              <tbody>
+                {filtered.map((r) => (
+                  <tr key={r.id}>
+                    <td>{r.name}</td>
+                    <td>{r.category}</td>
+                    <td>{r.provider}</td>
+                    <td>{r.discount}%</td>
+                    <td>{r.price}</td>
+                    <td>{r.id}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+
+            <p className="res-note">
+              Showing 1 to {filtered.length} of {tableRows.length} entries
+            </p>
+          </section>
+        </main>
+
+        <Footer />
+      </div>
+    </>
+  );
+}

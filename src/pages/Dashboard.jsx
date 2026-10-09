@@ -1,139 +1,159 @@
 import { useState } from "react";
 import Sidebar from "../components/Sidebar.jsx";
-import DashboardFooter from "../components/DashboardFooter.jsx";
-
-const cards = [
-  {
-    title: "Popular Programs",
-    badgeIcon: "fa-book",
-    badgeColor: "bg-purple",
-    stats: [
-      { icon: "fa-laptop-code", color: "text-purple", label: "Web Development", value: "19%" },
-      { icon: "fa-chart-simple", color: "text-pink", label: "Data Analytics", value: "4%" },
-      { icon: "fa-bullhorn", color: "text-blue", label: "Digital Marketing", value: "10%" },
-      { icon: "fa-robot", color: "text-orange", label: "AI Fundamentals", value: "21%" },
-      { icon: "fa-cart-shopping", color: "text-green", label: "E-Commerce", value: "2%" },
-    ],
-    moreDetails: true,
-  },
-  {
-    title: "Students by Program",
-    badgeIcon: "fa-user-graduate",
-    badgeColor: "bg-pink",
-    stats: [
-      { icon: "fa-laptop-code", color: "text-purple", label: "Web Development", value: "32%" },
-      { icon: "fa-chart-simple", color: "text-pink", label: "Data Analytics", value: "18%" },
-      { icon: "fa-bullhorn", color: "text-blue", label: "Digital Marketing", value: "15%" },
-      { icon: "fa-robot", color: "text-orange", label: "AI Fundamentals", value: "25%" },
-      { icon: "fa-cart-shopping", color: "text-green", label: "E-Commerce", value: "10%" },
-    ],
-    moreDetails: true,
-  },
-  {
-    title: "Smart Learning App Usage",
-    badgeIcon: "fa-mobile-screen",
-    badgeColor: "bg-blue",
-    stats: [
-      { icon: "fa-youtube", brand: true, color: "text-purple", label: "YouTube Tutorials", value: "25%" },
-      { icon: "fa-github", brand: true, color: "text-pink", label: "GitHub Classroom", value: "15%" },
-      { icon: "fa-comments", color: "text-blue", label: "HBC Chat App", value: "60%" },
-    ],
-    moreDetails: false,
-  },
-];
+import Footer from "../components/Footer.jsx";
+import "../styles/dashboard.css";
 
 export default function Dashboard() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div className="flex bg-[#f4f5f8] font-segoe">
-      <Sidebar active="Dashboard" open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+    <>
+      <Sidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
 
-      <div className="ml-0 flex-1 md:ml-[220px]">
-        <header className="flex items-center justify-between border-b border-[#eee] bg-white px-5 py-[15px]">
-          <div className="flex items-center gap-[15px]">
-            <button
-              onClick={() => setSidebarOpen(true)}
-              className="block border-none bg-transparent md:hidden"
-            >
+      <div className="main">
+        <header className="navbar">
+          <div className="navbar-left">
+            <button id="menuToggle" onClick={() => setSidebarOpen(true)}>
               <i className="fa-solid fa-bars"></i>
             </button>
-            <div>
-              <div className="text-[0.75rem] text-[#999]">
+            <div className="title-block">
+              <div className="breadcrumb">
                 <i className="fa-solid fa-house"></i> / Dashboard
               </div>
-              <div className="font-bold">Dashboard</div>
+              <div className="page-title">Dashboard</div>
             </div>
           </div>
 
-          <div className="flex items-center gap-[15px]">
-            <div className="hidden items-center gap-2 rounded-lg border border-[#ddd] px-3 py-2 md:flex">
+          <div className="navbar-right">
+            <div className="search-box">
               <i className="fa-solid fa-magnifying-glass"></i>
-              <input type="text" placeholder="Type here..." className="border-none outline-none" />
+              <input type="text" placeholder="Type here..." />
             </div>
-            <a href="/logout" className="text-[#555]">
+            <a href="/logout" id="logoutBtn">
               <i className="fa-solid fa-arrow-right-from-bracket"></i> Log out
             </a>
-            <i className="fa-solid fa-gear"></i>
-            <i className="fa-solid fa-bell"></i>
+            <i className="fa-solid fa-gear icon-btn"></i>
+            <i className="fa-solid fa-bell icon-btn"></i>
           </div>
         </header>
 
-        <main className="p-5">
-          <h1 className="mb-[25px]">Welcome to HBC Admin Panel!</h1>
+        <main className="content">
+          <h1>Welcome to HBC Admin Panel!</h1>
 
-          <div className="grid grid-cols-1 items-start gap-5 md:grid-cols-2">
-            {cards.map((card) => (
-              <div key={card.title} className="rounded-[10px] bg-white p-[18px]">
-                <h3 className="mb-[15px] flex items-center gap-2.5">
-                  <span
-                    className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-white ${card.badgeColor}`}
-                  >
-                    <i className={`fa-solid ${card.badgeIcon}`}></i>
-                  </span>
-                  {card.title}
-                </h3>
-                <div className="mb-[15px] flex items-center gap-6 [@media(max-width:768px)]:flex-col">
-                  <div className="h-[100px] w-[100px] min-w-[100px] shrink-0 rounded-full border-[15px] border-purple border-r-pink border-b-blue" />
-                  <ul className="flex-1">
-                    {card.stats.map((s) => (
-                      <li
-                        key={s.label}
-                        className="flex items-center gap-2 border-b border-[#f0f0f0] py-1.5 text-[0.85rem]"
-                      >
-                        <i
-                          className={`w-4 ${s.brand ? "fa-brands" : "fa-solid"} ${s.icon} ${s.color}`}
-                        ></i>{" "}
-                        {s.label} <span className="ml-auto font-bold">{s.value}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                {card.moreDetails && (
-                  <button className="mx-auto mt-2.5 block rounded-[20px] bg-[#f0eefc] px-5 py-2 text-purple">
-                    MORE DETAILS
-                  </button>
-                )}
+          <div className="cards-grid">
+            <div className="card">
+              <h3>
+                <span className="icon-badge purple">
+                  <i className="fa-solid fa-book"></i>
+                </span>
+                Popular Programs
+              </h3>
+              <div className="chart-row">
+                <div className="donut"></div>
+                <ul className="stat-list">
+                  <li>
+                    <i className="fa-solid fa-laptop-code icon-purple"></i> Web
+                    Development <span className="val">19%</span>
+                  </li>
+                  <li>
+                    <i className="fa-solid fa-chart-simple icon-pink"></i> Data
+                    Analytics <span className="val">4%</span>
+                  </li>
+                  <li>
+                    <i className="fa-solid fa-bullhorn icon-blue"></i> Digital
+                    Marketing <span className="val">10%</span>
+                  </li>
+                  <li>
+                    <i className="fa-solid fa-robot icon-orange"></i> AI
+                    Fundamentals <span className="val">21%</span>
+                  </li>
+                  <li>
+                    <i className="fa-solid fa-cart-shopping icon-green"></i>{" "}
+                    E-Commerce <span className="val">2%</span>
+                  </li>
+                </ul>
               </div>
-            ))}
+              <button className="more-btn">MORE DETAILS</button>
+            </div>
 
-            <div className="rounded-[10px] bg-white p-[18px]">
-              <h3 className="mb-[15px] flex items-center gap-2.5">
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-green text-white">
+            <div className="card">
+              <h3>
+                <span className="icon-badge pink">
+                  <i className="fa-solid fa-user-graduate"></i>
+                </span>
+                Students by Program
+              </h3>
+              <div className="chart-row">
+                <div className="donut"></div>
+                <ul className="stat-list">
+                  <li>
+                    <i className="fa-solid fa-laptop-code icon-purple"></i> Web
+                    Development <span className="val">32%</span>
+                  </li>
+                  <li>
+                    <i className="fa-solid fa-chart-simple icon-pink"></i> Data
+                    Analytics <span className="val">18%</span>
+                  </li>
+                  <li>
+                    <i className="fa-solid fa-bullhorn icon-blue"></i> Digital
+                    Marketing <span className="val">15%</span>
+                  </li>
+                  <li>
+                    <i className="fa-solid fa-robot icon-orange"></i> AI
+                    Fundamentals <span className="val">25%</span>
+                  </li>
+                  <li>
+                    <i className="fa-solid fa-cart-shopping icon-green"></i>{" "}
+                    E-Commerce <span className="val">10%</span>
+                  </li>
+                </ul>
+              </div>
+              <button className="more-btn">MORE DETAILS</button>
+            </div>
+
+            <div className="card">
+              <h3>
+                <span className="icon-badge blue">
+                  <i className="fa-solid fa-mobile-screen"></i>
+                </span>
+                Smart Learning App Usage
+              </h3>
+              <div className="chart-row">
+                <div className="donut"></div>
+                <ul className="stat-list">
+                  <li>
+                    <i className="fa-brands fa-youtube icon-purple"></i> YouTube
+                    Tutorials <span className="val">25%</span>
+                  </li>
+                  <li>
+                    <i className="fa-brands fa-github icon-pink"></i> GitHub
+                    Classroom <span className="val">15%</span>
+                  </li>
+                  <li>
+                    <i className="fa-solid fa-comments icon-blue"></i> HBC Chat
+                    App <span className="val">60%</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="card">
+              <h3>
+                <span className="icon-badge green">
                   <i className="fa-solid fa-award"></i>
                 </span>
                 Program Completion Rate
               </h3>
-              <div className="text-[1.8rem] font-bold">
-                70% <span className="text-[0.9rem] text-green">+3%</span>
+              <div className="score">
+                70% <span className="up">+3%</span>
               </div>
-              <p className="text-[0.8rem] text-[#999]">Compared to last semester</p>
+              <p className="score-note">Compared to last semester</p>
             </div>
           </div>
         </main>
 
-        <DashboardFooter />
+        <Footer />
       </div>
-    </div>
+    </>
   );
 }
