@@ -1,126 +1,184 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HBC Admin Panel - Sign In</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    />
-  </head>
-  <body>
-    <section class="hero">
-      <div class="hero-overlay"></div>
-      <div class="hero-text">
-        <h1 class="hero-title">Welcome to HBC Admin Panel!</h1>
-        <p class="hero-subtitle">
-          Manage students, instructors, and projects in one place.
-        </p>
-      </div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f7f8fa">
+  <title>Accountsetting</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="breadcrumb"><a href="#top" aria-label="Home"><i class="fa-solid fa-house"></i></a><span>/</span><span>Accountsetting</span></div>
+    <h1>Accountsetting</h1>
+    <div class="header-tools">
+      <label class="search-box"><i class="fa-solid fa-magnifying-glass"></i><input id="searchInput" type="search" placeholder="Type here..." aria-label="Search settings"></label>
+      <nav class="quick-icons" aria-label="Quick links">
+        <a href="#profile" aria-label="Profile"><i class="fa-solid fa-circle-user"></i></a>
+        <button type="button" id="menuToggle" aria-label="Toggle settings menu"><i class="fa-solid fa-bars-staggered"></i></button>
+        <a href="#top" aria-label="Settings"><i class="fa-solid fa-gear"></i></a>
+        <button type="button" id="notificationsBtn" aria-label="Notifications"><i class="fa-solid fa-bell"></i></button>
+      </nav>
+    </div>
+    <p class="notification" id="notificationMessage" hidden>No new notifications.</p>
+  </header>
+
+  <main class="container" id="top">
+    <section class="card settings-menu" id="settingsMenu" aria-label="Account settings navigation">
+      <a href="#profile"><i class="fa-solid fa-rocket"></i><span>Profile</span></a>
+      <a href="#basic-info"><i class="fa-solid fa-book"></i><span>Basic Info</span></a>
+      <a href="#change-password"><i class="fa-solid fa-cube"></i><span>Change Password</span></a>
+      <a href="#two-factor"><i class="fa-solid fa-store"></i><span>2FA</span></a>
+      <a href="#sessions"><i class="fa-solid fa-screwdriver-wrench"></i><span>Sessions</span></a>
+      <a href="#delete-account"><i class="fa-solid fa-credit-card"></i><span>Delete Account</span></a>
     </section>
 
-    <div class="auth-card-wrapper">
-      <div class="auth-card">
-        <div id="signin-form" class="auth-form active">
-          <h2 class="auth-title">Sign in to HBC Admin</h2>
-          <div class="social-login">
-            <button type="button" class="social-btn facebook">
-              <i class="fa-brands fa-facebook-f"></i>
-            </button>
-            <button type="button" class="social-btn google">
-              <i class="fa-brands fa-google"></i>
-            </button>
-          </div>
-          <form id="signInForm" novalidate>
-            <div class="input-group">
-              <input
-                type="text"
-                id="signin-email"
-                placeholder="Email or Phone number"
-              />
-              <span class="error-msg"></span>
-            </div>
-            <div class="input-group">
-              <input
-                type="password"
-                id="signin-password"
-                placeholder="Please enter your password"
-              />
-              <span class="error-msg"></span>
-            </div>
-            <button type="submit" class="btn btn-pink">SIGN IN</button>
-          </form>
-          <div class="auth-links">
-            <a href="#" class="forgot-link">Forgot password?</a>
-            <label class="remember-me"
-              ><input type="checkbox" /> <span>Remember me</span></label
-            >
-          </div>
-          <div class="divider"><span>or</span></div>
-          <button type="button" class="btn btn-blue" id="showSignUp">
-            SIGN UP
-          </button>
-        </div>
+    <section class="card profile-card" id="profile">
+      <div class="profile-details">
+       <img src="IMG_8098.jpeg.jpeg" width="120">
+        <div><h2 id="profileName">sumayyah Babakarkhil</h2><p>Patient</p></div>
+      </div>
+      <label class="switch-row" for="invisibleSwitch">
+        <span>Switch to invisible</span>
+        <input id="invisibleSwitch" type="checkbox" checked>
+        <span class="switch" aria-hidden="true"></span>
+      </label>
+      <p class="small-status" id="visibilityStatus" aria-live="polite"></p>
+    </section>
 
-        <div id="signup-form" class="auth-form">
-          <h2 class="auth-title">Create your HBC Admin account</h2>
-          <div class="social-login">
-            <button type="button" class="social-btn facebook">
-              <i class="fa-brands fa-facebook-f"></i>
-            </button>
-            <button type="button" class="social-btn google">
-              <i class="fa-brands fa-google"></i>
-            </button>
-          </div>
-          <form id="signUpForm" novalidate>
-            <div class="input-group">
-              <input type="text" id="signup-name" placeholder="Full name" />
-              <span class="error-msg"></span>
-            </div>
-            <div class="input-group">
-              <input
-                type="text"
-                id="signup-email"
-                placeholder="Email or Phone number"
-              />
-              <span class="error-msg"></span>
-            </div>
-            <div class="input-group">
-              <input
-                type="password"
-                id="signup-password"
-                placeholder="Create a password"
-              />
-              <span class="error-msg"></span>
-            </div>
-            <div class="input-group">
-              <input
-                type="password"
-                id="signup-confirm"
-                placeholder="Confirm password"
-              />
-              <span class="error-msg"></span>
-            </div>
-            <button type="submit" class="btn btn-blue">SIGN UP</button>
-          </form>
-          <div class="divider"><span>or</span></div>
-          <button type="button" class="btn btn-pink" id="showSignIn">
-            BACK TO SIGN IN
-          </button>
+    <section class="card section-card" id="basic-info">
+      <h2>Basic Info</h2>
+      <form id="basicInfoForm">
+        <div class="form-group"><label for="firstName">First Name</label><input id="firstName" name="firstName" type="text" placeholder="Sumayyah" value="Sumayyah" required></div>
+        <div class="form-group"><label for="lastName">Last Name</label><input id="lastName" name="lastName" type="text" placeholder="Babakarkhil" value="Babakarkhil" required></div>
+        <div class="form-group"><label for="female"></label><select id="gender" name="female"><option></option><option>Female</option><option>Prefer not to say</option><option>Other</option></select></div>
+        <div class="form-group"><label for="birthMonth">Birth month</label><select id="May" name="May"><option>January</option><option selected>May</option><option>March</option><option>April</option><option>May</option><option>June</option><option>July</option><option>August</option><option>September</option><option>October</option><option>November</option><option>December</option></select></div>
+        <div class="form-group"><label for="birthDay">Day</label><select id="birthDay" name="birthDay">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+          <option value="20" selected>20</option>
+          <option value="21">21</option>
+          <option value="22">22</option>
+          <option value="23">23</option>
+          <option value="24">24</option>
+          <option value="25">25</option>
+          <option value="26">26</option>
+          <option value="27">27</option>
+          <option value="28">28</option>
+          <option value="29">29</option>
+          <option value="30">30</option>
+          <option value="31">31</option>
+        </select></div>
+        <div class="form-group"><label for="birthYear">Year</label><select id="birthYear" name="birthYear">
+          <option value="2003" selected>2003</option>
+          <option value="2004">2004</option>
+          <option value="2002">2002</option>
+        </select></div>
+        <div class="form-group"><label for="bloodGroup">Blood Group</label><select id="bloodGroup" name="bloodGroup"><option value="" selected disabled>A+</option><option>A+</option><option>A-</option><option>B+</option><option>B-</option><option>AB+</option><option>AB-</option><option>O+</option><option>O-</option></select></div>
+        <div class="form-group"><label for="location">Your Location</label><input id="location" name="location" type="text" placeholder="Kabul Afghanistan,"></div>
+        <div class="form-group"><label for="phone">Phone Number</label><input id="phone" name="phone" type="tel" placeholder="+93 787921106"></div>
+        <div class="form-group"><label for="height">Height</label><input id="height" name="Height" type="text" placeholder="155"></div>
+        <div class="form-group"><label for="weight">Weight</label><input id="weight" name="Weight" type="text" placeholder="61"></div>
+        <button class="btn btn-primary" type="submit">UPDATE INFORMATION</button>
+        <p class="form-message" id="basicMessage" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section class="card section-card" id="change-password">
+      <h2>Change Password</h2>
+      <form id="passwordForm">
+        <div class="form-group"><label for="currentPassword">Current Password</label><input id="currentPassword" type="password" placeholder="Current Password" autocomplete="current-password" required></div>
+        <div class="form-group"><label for="newPassword">New Password</label><input id="newPassword" type="password" placeholder="New Password" autocomplete="new-password" required></div>
+        <div class="form-group"><label for="confirmPassword">Confirm New Password</label><input id="confirmPassword" type="password" placeholder="Confirm Password" autocomplete="new-password" required></div>
+        <div class="password-help">
+          <h3>Password requirements</h3>
+          <p>Please follow this guide for a strong password</p>
+          <ul><li>One special character</li><li>Minimum 6 characters</li><li>One number (2 are recommended)</li><li>Change it often</li></ul>
+        </div>
+        <button class="btn btn-primary" type="submit">UPDATE PASSWORD</button>
+        <p class="form-message" id="passwordMessage" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section class="card section-card" id="two-factor">
+      <div class="section-heading"><h2>Two-factor authentication</h2><span class="badge disabled" id="twofaBadge">DISABLED</span></div>
+      <div class="security-item">
+        <h3>Security keys</h3><p id="securityKeysStatus">No Security keys</p>
+        <button class="btn btn-outline" type="button" id="addKeyBtn">ADD</button>
+      </div>
+      <div class="security-item">
+        <h3>SMS number</h3><p id="smsNumber">Not configured</p>
+        <button class="btn btn-outline" type="button" id="editSmsBtn">EDIT</button>
+      </div>
+      <div class="security-item">
+        <h3>Authenticator app</h3><p id="authenticatorStatus">Not Configured</p>
+        <button class="btn btn-outline" type="button" id="setupAuthBtn">SET UP</button>
+      </div>
+      <button class="btn btn-primary" type="button" id="toggle2faBtn">ENABLE 2FA</button>
+      <p class="form-message" id="twofaMessage" aria-live="polite"></p>
+    </section>
+
+    <section class="card section-card" id="sessions">
+      <h2>Sessions</h2>
+      <p class="description">This is a list of devices that have logged into your account. Remove those that you do not recognize.</p>
+      <div id="sessionList">
+        <div class="session-row">
+          <i class="fa-solid fa-desktop device-icon"></i>
+          <div class="session-info"><h3>Bucharest 68.133.163.201</h3><p>Your current session</p></div>
+          <span class="badge">ACTIVE</span><span class="region">EU</span><span class="text-muted">Current</span>
+        </div>
+        <div class="session-row">
+          <i class="fa-solid fa-desktop device-icon"></i>
+          <div class="session-info"><h3>Chrome on macOS</h3></div><span class="region">US</span>
+          <button class="text-btn session-more" type="button" data-device="Chrome on macOS">See more <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+        <div class="session-row">
+          <i class="fa-solid fa-mobile-screen-button device-icon"></i>
+          <div class="session-info"><h3>Safari on iPhone</h3></div><span class="region">US</span>
+          <button class="text-btn session-more" type="button" data-device="Safari on iPhone">See more <i class="fa-solid fa-arrow-right"></i></button>
         </div>
       </div>
-    </div>
+      <p class="form-message" id="sessionMessage" aria-live="polite"></p>
+    </section>
 
-    <nav class="bottom-links">
-      <a href="about.html">About HBC</a>
-      <a href="#">Our Programs</a>
-      <a href="#">Contact Us</a>
-    </nav>
+    <section class="card section-card" id="delete-account">
+      <h2>Delete Account</h2>
+      <p class="description">Once you delete your account, there is no going back. Please be certain.</p>
+      <label class="confirm-row" for="deleteConfirm">
+        <input id="deleteConfirm" type="checkbox">
+        <span class="confirm-switch" aria-hidden="true"></span>
+        <span><strong>Confirm</strong><small>I want to delete my account.</small></span>
+      </label>
+      <div class="delete-actions">
+        <button class="btn btn-outline" id="deactivateBtn" type="button" disabled>DEACTIVATE</button>
+        <button class="btn btn-danger" id="deleteBtn" type="button" disabled>DELETE ACCOUNT</button>
+      </div>
+      <p class="form-message" id="deleteMessage" aria-live="polite"></p>
+    </section>
+  </main>
 
-    <div id="toast" class="toast"></div>
-
-    <script src="js/script.js"></script>
-  </body>
+  <footer class="footer">
+    <p>© 2026, made with <i class="fa-solid fa-heart"></i> by <strong>MyPiHUB</strong> for a better web.</p>
+    <div><a href="#top">MyPatientHUB</a><a href="#top">About Us</a><a href="#top">Blog</a></div>
+  </footer>
+</body>
 </html>
